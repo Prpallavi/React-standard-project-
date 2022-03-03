@@ -1,24 +1,20 @@
-import {Routes, Route } from "react-router-dom";
-import React from 'react'
-import { Updatepost } from "../components/pages";
-import Home from "../components/pages/Registration/home/home";
-
-
-
+import { Routes, Route } from "react-router-dom";
+import React from "react";
+import {  Home, Viewprofile } from "../components/pages";
+import { Updatepost, Profile, Login } from "../components/pages";
 
 function Approutes() {
   return (
     <div>
-        
-  
       <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/editpost' element={<Updatepost/>}/>
-        
-    </Routes>
-     
+        <Route path="/" element={<Home />} />
+        <Route path="/editpost" element={<Updatepost />} />
+        <Route path="/form" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/view" element={< Viewprofile/>} />
+      </Routes>
     </div>
-  )
+  );
 }
 
-export default Approutes
+export default Approutes;

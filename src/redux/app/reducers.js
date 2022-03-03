@@ -1,4 +1,3 @@
-   
 import { ActionTypes } from "./action-types";
 
 const INITIAL_STATE = {
@@ -26,13 +25,13 @@ const reducer = (state = INITIAL_STATE, action) => {
         users: [],
         error: action.payload,
       };
-      case ActionTypes.ADD_USERDATA_SUCCESS:
-        return {
-          loading: false,
-          users: action.payload,
-          error: "",
-        };
-      default:
+    case ActionTypes.ADD_USERDATA_SUCCESS:
+      return {
+        loading: false,
+        users: action.payload,
+        error: "",
+      };
+    default:
       return state;
   }
 };

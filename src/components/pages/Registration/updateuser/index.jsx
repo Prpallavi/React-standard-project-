@@ -1,2 +1,3 @@
-import Updatepost from "./editpost";
+import Updatepost from "./update";
+
 export default Updatepost

@@ -1,0 +1,9 @@
+{
+    "header": [
+        {"field":"name","sortable": true,"filter": true},
+        {"field": "email" ,"sortable": true,"filter": true},
+        {"field": "mobile" ,"filter": true},
+        {"field": "gender" ,"sortable": true,"filter": true},
+        {"field": "city" ,"sortable": true,"filter": true}
+    ]
+  }

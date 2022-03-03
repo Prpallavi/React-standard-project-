@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Home from './pages/Registration/home'
-
+import Home from './pages/Registration/home/home';
 import { store } from '../redux/store'
 
 import { Provider } from 'react-redux';

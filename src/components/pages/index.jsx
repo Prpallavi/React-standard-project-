@@ -1,4 +1,5 @@
-import {Regitration,Home,Updatepost}  from "./Registration";
+import {Home,Updatepost,Profile,Login,Viewprofile}  from "./Registration";
+
 export{
-    Home,Updatepost
+    Home,Updatepost,Profile,Login,Viewprofile
 }

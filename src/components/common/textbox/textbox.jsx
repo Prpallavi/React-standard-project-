@@ -4,6 +4,7 @@ import { Form } from "react-bootstrap";
 function Textbox(props) {
   return (  
   <Form.Control
+  label={props.label}
     type={props.type}
     id={props.id}
     name={props.name}
