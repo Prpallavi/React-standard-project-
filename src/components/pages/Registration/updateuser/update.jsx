@@ -36,7 +36,6 @@ export default function Updatepost() {
         type="text"
         value={value.name}
       />
-     
       Password:
       <Textbox
         id="password"
@@ -45,13 +44,11 @@ export default function Updatepost() {
         type="text"
         value={value.password}
       />
-      
       <BootstrapButton
         variant="primary"
         onClick={() => navigate(-1)}
         message="back"
-      
-      />{' '}
+      />{" "}
       <BootstrapButton
         variant="primary"
         onClick={() => handleUpdate(state._id)}

@@ -15,7 +15,7 @@ export default function Home() {
   const [value, setValues] = useState(state);
   const data = useSelector((state) => state.app);
   console.log(data);
-  
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUser());
@@ -38,13 +38,12 @@ export default function Home() {
   };
   return (
     <div>
-    
       <BootstrapButton
         variant="primary"
         message="LOGIN"
         onClick={() => navigate("/login")}
       />
-    
+
       <div className="budgetwrapper">
         <h3> ADD USER</h3>
         Username:
@@ -54,7 +53,6 @@ export default function Home() {
           onChange={(e) => handleFields(e)}
           type="text"
         />
-       
         Password:
         <Textbox
           id="password"
@@ -62,13 +60,12 @@ export default function Home() {
           onChange={(e) => handleFields(e)}
           type="password"
         />
-     <br/>
+        <br />
         <BootstrapButton
           variant="primary"
           message="Regiter"
           onClick={() => handleAdd()}
         />
-      
       </div>
 
       <div className="budgetwrapper">

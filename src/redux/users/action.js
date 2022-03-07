@@ -11,7 +11,11 @@ import {
   patchData,
   postData,
 } from "../../services/baseapiservices";
-import { profileview_url,profile_url, USER_BASE_URL } from "../../apiConfig/users";
+import {
+  profileview_url,
+  profile_url,
+  USER_BASE_URL,
+} from "../../apiConfig/users";
 
 export const fetchUser = () => {
   return (dispatch) => {
@@ -26,7 +30,6 @@ export const fetchUser = () => {
   };
 };
 
-
 export const fetchProfiles = () => {
   return (dispatch) => {
     dispatch(fetchUserRequest());
@@ -39,7 +42,6 @@ export const fetchProfiles = () => {
     console.log(response);
   };
 };
-
 
 export const addUser = (data) => {
   return (dispatch) => {
@@ -54,10 +56,9 @@ export const addUser = (data) => {
   };
 };
 
-
 export const profileUser = (data) => {
   return (dispatch) => {
-    const response = postData(profile_url , data)
+    const response = postData(profile_url, data)
       .then((res) => {
         dispatch(fetchUser());
       })
