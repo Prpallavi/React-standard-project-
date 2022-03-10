@@ -12,8 +12,11 @@ import {
   postData,
 } from "../../services/baseapiservices";
 import {
+  countryview_url,
+  country_url,
   profileview_url,
   profile_url,
+  statesview_url,
   USER_BASE_URL,
 } from "../../apiConfig/users";
 
@@ -43,6 +46,35 @@ export const fetchProfiles = () => {
   };
 };
 
+// Dropdown countries fetch
+
+export const fetchCountries = () => {
+  return (dispatch) => {
+    dispatch(fetchUserRequest());
+
+    const response = getData(countryview_url)
+      .then((res) => dispatch(fetchUserSuccess(res)))
+      .catch((error) => {
+        throw error;
+      });
+    console.log(response);
+  };
+};
+
+//dropdown fetch states
+export const fetchStates = () => {
+  return (dispatch) => {
+    dispatch(fetchUserRequest());
+
+    const response = getData(statesview_url)
+      .then((res) => dispatch(fetchUserSuccess(res)))
+      .catch((error) => {
+        throw error;
+      });
+    console.log(response);
+  };
+};
+
 export const addUser = (data) => {
   return (dispatch) => {
     const response = postData(USER_BASE_URL, data)
@@ -59,6 +91,21 @@ export const addUser = (data) => {
 export const profileUser = (data) => {
   return (dispatch) => {
     const response = postData(profile_url, data)
+      .then((res) => {
+        dispatch(fetchUser());
+      })
+      .catch((error) => {
+        throw error;
+      });
+    console.log(response);
+  };
+};
+
+// Dropdown countries post
+
+export const addCountries = (data) => {
+  return (dispatch) => {
+    const response = postData(country_url, data)
       .then((res) => {
         dispatch(fetchUser());
       })

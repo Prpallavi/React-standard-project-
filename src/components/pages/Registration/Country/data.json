@@ -1,0 +1,26 @@
+
+ [
+    {
+      "country": "India",
+      "states": [
+        {
+          "state":"Tamil Nadu"
+        },
+        {
+            "state":"Andhra Pradesh"
+        }
+      ]
+    },
+    {
+      "country": "Canada",
+      
+      "states": [
+        {
+          "state":"Alberta"
+        },
+        {
+            "state":"Nova Scotia"
+        }
+      ]
+    }
+  ]

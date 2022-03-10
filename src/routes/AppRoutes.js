@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import React from "react";
-import {  Home, Viewprofile } from "../components/pages";
+import {  Countrydropdown, Home, Viewprofile } from "../components/pages";
 import { Updatepost, Profile, Login } from "../components/pages";
 
 function Approutes() {
@@ -12,6 +12,7 @@ function Approutes() {
         <Route path="/form" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/view" element={< Viewprofile/>} />
+        <Route path="/show" element={< Countrydropdown/>} />
       </Routes>
     </div>
   );

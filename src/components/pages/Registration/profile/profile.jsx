@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { BootstrapButton, Label, RadioButton, Textbox } from "../../../common";
 import { Link } from "react-router-dom";
-import { profileUser } from "../../../../redux/users/action";
+import { profileUser, } from "../../../../redux/users/action";
 import {
   isValidMobile,
   isValidEmailAddress,
@@ -11,11 +11,15 @@ import {
 const mapStateToProps = (state) => {
   return {
     profileData: state.profileData,
+   
+   
   };
 };
+
 const mapDispatchToProps = () => {
   return {
     profileUser,
+  
   };
 };
 class Profile extends React.Component {
@@ -28,6 +32,7 @@ class Profile extends React.Component {
       city: "",
       gender: "",
       errorbal: "",
+      
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -36,29 +41,29 @@ class Profile extends React.Component {
   } */
 
   validatefield = () => {
-    if (!this.state.name || !this.state.name.trim()) {
+    if (!this.state.name) {
       this.setState({
-        errorbal: "name is required",
+        errorbal: "Name is required",
       });
       return false;
-    } else if (!this.state.email || !this.state.email.trim()) {
+    } else if (!this.state.email) {
       this.setState({
-        errorbal: "email is required",
+        errorbal: "Email is required",
       });
       return false;
-    } else if (!this.state.mobile || !this.state.mobile.trim()) {
+    } else if (!this.state.mobile) {
       this.setState({
-        errorbal: "phone No is required",
+        errorbal: "Phone No is required",
       });
       return false;
-    } else if (!this.state.gender || !this.state.gender.trim()) {
+    } else if (!this.state.gender) {
       this.setState({
-        errorbal: "gender is required",
+        errorbal: "Gender is required",
       });
       return false;
-    } else if (!this.state.city || !this.stat.city.trim()) {
+    } else if (!this.state.city) {
       this.setState({
-        errorbal: "city is required",
+        errorbal: "City is required",
       });
       return false;
     } else {
@@ -84,6 +89,9 @@ class Profile extends React.Component {
       [event.target.name]: event.target.value,
     });
   };
+
+
+
 
   handleSubmit = (event) => {
     if (!this.validatefield()) {
@@ -171,6 +179,11 @@ class Profile extends React.Component {
             <span className="error">{this.state.mobileValid}</span>
           )}
           <br />
+         {/*  <select  >
+                <option value="" selected>Select Country</option>
+                {}
+               </select>
+          <br /> */}
           City:
           <Textbox
             id="city"
