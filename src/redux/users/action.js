@@ -1,5 +1,9 @@
 import {
   addUserSuccess,
+  fetchCountryRequest,
+  fetchCountrySuccess,
+  fetchStatesRequest,
+  fetchStatesSuccess,
   fetchUserFailure,
   fetchUserRequest,
   fetchUserSuccess,
@@ -50,33 +54,46 @@ export const fetchProfiles = () => {
 
 export const fetchCountries = () => {
   return (dispatch) => {
-    dispatch(fetchUserRequest());
+    dispatch(fetchCountryRequest());
 
     const response = getData(countryview_url)
-      .then((res) => dispatch(fetchUserSuccess(res)))
+      .then((res) =>  {
+        dispatch(fetchCountrySuccess(res))
+      return res
+    })
       .catch((error) => {
         throw error;
       });
+     
     console.log(response);
+    return response
   };
 };
 
 //dropdown fetch states
-export const fetchStates = () => {
+export const fetchStates = (id) => {
+  console.log(id)
   return (dispatch) => {
-    dispatch(fetchUserRequest());
+   
+    dispatch(fetchStatesRequest());
 
-    const response = getData(statesview_url)
-      .then((res) => dispatch(fetchUserSuccess(res)))
+    const response = getData(statesview_url+id)
+      .then((res) =>{
+        dispatch(fetchStatesSuccess(res)) 
+        return res
+      }) 
+      
       .catch((error) => {
         throw error;
       });
     console.log(response);
+    return response
   };
 };
 
 export const addUser = (data) => {
   return (dispatch) => {
+ 
     const response = postData(USER_BASE_URL, data)
       .then((res) => {
         dispatch(fetchUser());

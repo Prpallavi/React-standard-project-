@@ -46,6 +46,22 @@
             "state":"Northwest Territories"
         }
       ]
+    },
+    {
+      "country": "America",
+      
+      "states": [
+        {
+          "state":"California"
+        },
+        {
+            "state":"Texas"
+        },
+        {
+            "state":"Washington"
+        }
+       
+      ]
     }
     
   ]

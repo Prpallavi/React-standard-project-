@@ -1,56 +1,51 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import Select from "react-select";
-import { getregionjson } from "../../../../services/baseapiservices";
+import { fetchCountries, fetchStates } from "../../../../redux/users/action";
+import { Dropselect } from "../../../common";
 
+export default function Countrydropdown() {
+  const [dcountry, setCountry] = useState();
+  const [dstates, setstates] = useState();
+  const data = useSelector((state) => state.app);
+  console.log(data);
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCountries()).then((res) => {
+      setCountry(res);
+    });
+  }, []);
 
-export default function Countrydropdown(){
-  const jsonreg = getregionjson();
-  console.log(jsonreg); 
-
-  const [country, setCountry] = useState(null);
-  const [states, setstates] = useState(null);
-  const [stateList, setstateList] = useState([]);
- 
   const handleCountryChange = (e) => {
-    setCountry(e);
-    setstateList(e.states);
-    setstates(null);
+    console.log(e);
+    dispatch(fetchStates(e._id)).then((res) => {
+      setstates(res);
+    });
   };
 
   const handleStateChange = (e) => {
-    setstates(e);
+    console.log(e);
   };
-  
-      return (
-      <div className="budgetwrapper">
- 
-         <div style={{ width: 400, marginBottom: 20 }}>
-        <b>Country</b>
-        <Select
-          placeholder="Select Country"
-          value={country}
-          options={jsonreg}
-          onChange={handleCountryChange}
-          getOptionLabel={e => e.country}
-          getOptionValue={e => e.country}
-        />
-        <br />
-        <b>State</b>
-        <Select
-          placeholder="Select State"
-          value={states}
-          options={stateList}
-          onChange={handleStateChange}
-          getOptionLabel={x => x.state}
-          getOptionValue={x => x.state}
-        />
-      </div>
-     
+
+  return (
+    <div className="budgetwrapper">
+      <b>Country</b>
+      <Dropselect
+        placeholder="Select Country"
+        options={dcountry}
+        onChange={handleCountryChange}
+        getOptionLabel={(x) => x.country}
+        getOptionValue={(x) => x.country}
+      />
+      <br />
+      <b>State</b>
+      <Dropselect
+        placeholder="Select State"
+        options={dstates}
+        onChange={handleStateChange}
+        getOptionLabel={(x) => x.states}
+        getOptionValue={(x) => x.states}
+      />
     </div>
- 
-  
-      )
+  );
 }

@@ -20,6 +20,50 @@ export const fetchUserFailure = (error) => {
   };
 };
 
+
+//country
+export const fetchCountryRequest = () => {
+  return {
+    type: ActionTypes.FETCH_COUNTRIES_LOADING,
+  };
+};
+
+export const fetchCountrySuccess = (posts) => {
+  return {
+    type: ActionTypes.FETCH_COUNTRIES_SUCCESS,
+    payload: posts,
+  };
+};
+
+export const fetchCountryFailure = (error) => {
+  return {
+    type: ActionTypes.FETCH_COUNTRIES_FAILURE,
+    payload: error,
+  };
+};
+
+//states
+export const fetchStatesRequest = () => {
+  return {
+    type: ActionTypes.FETCH_STATES_LOADING,
+  };
+};
+
+export const fetchStatesSuccess = (posts) => {
+  return {
+    type: ActionTypes.FETCH_STATES_SUCCESS,
+    payload: posts,
+  };
+};
+
+export const fetchStatesFailure = (error) => {
+  return {
+    type: ActionTypes.FETCH_STATES_FAILURE,
+    payload: error,
+  };
+};
+
+
 export const addUserSuccess = (posts) => {
   return {
     type: ActionTypes.ADD_USERDATA_SUCCESS,

@@ -3,6 +3,8 @@ import { ActionTypes } from "./action-types";
 const INITIAL_STATE = {
   loading: false,
   users: [],
+  dcountries: [],
+  dstates: [],
   error: "",
 };
 
@@ -17,6 +19,7 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         loading: false,
         users: action.payload,
+  
         error: "",
       };
     case ActionTypes.FETCH_USERDATA_FAILURE:
@@ -25,6 +28,50 @@ const reducer = (state = INITIAL_STATE, action) => {
         users: [],
         error: action.payload,
       };
+
+//COUNTRIES
+      case ActionTypes.FETCH_COUNTRIES_LOADING:
+      return {
+        ...state,
+        loading: true,
+      };
+    case ActionTypes.FETCH_COUNTRIES_SUCCESS:
+      return {
+        loading: false,
+        dcountries: action.payload,
+  
+        error: "",
+      };
+    case ActionTypes.FETCH_COUNTRIES_FAILURE:
+      return {
+        loading: false,
+        dcountries: [],
+        error: action.payload,
+      };
+
+//STATES
+
+
+case ActionTypes.FETCH_STATES_LOADING:
+  return {
+    ...state,
+    loading: true,
+  };
+case ActionTypes.FETCH_STATES_SUCCESS:
+  return {
+    loading: false,
+    dstates: action.payload,
+
+    error: "",
+  };
+case ActionTypes.FETCH_STATES_FAILURE:
+  return {
+    loading: false,
+    dstates: [],
+    error: action.payload,
+  };
+
+
     case ActionTypes.ADD_USERDATA_SUCCESS:
       return {
         loading: false,
