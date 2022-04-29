@@ -64,6 +64,28 @@ export const fetchStatesFailure = (error) => {
 };
 
 
+
+//json todos
+export const fetchTodosRequest = () => {
+  return {
+    type: ActionTypes.FETCH_TODOS_LOADING,
+  };
+};
+
+export const fetchTodosSuccess = (posts) => {
+  return {
+    type: ActionTypes.FETCH_TODOS_SUCCESS,
+    payload: posts,
+  };
+};
+
+export const fetchTodosFailure = (error) => {
+  return {
+    type: ActionTypes.FETCH_TODOS_FAILURE,
+    payload: error,
+  };
+};
+
 export const addUserSuccess = (posts) => {
   return {
     type: ActionTypes.ADD_USERDATA_SUCCESS,

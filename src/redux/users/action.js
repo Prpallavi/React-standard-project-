@@ -4,6 +4,8 @@ import {
   fetchCountrySuccess,
   fetchStatesRequest,
   fetchStatesSuccess,
+  fetchTodosRequest,
+  fetchTodosSuccess,
   fetchUserFailure,
   fetchUserRequest,
   fetchUserSuccess,
@@ -18,9 +20,11 @@ import {
 import {
   countryview_url,
   country_url,
+  deleteprofile_url,
   profileview_url,
   profile_url,
   statesview_url,
+  todo_url,
   USER_BASE_URL,
 } from "../../apiConfig/users";
 
@@ -33,6 +37,7 @@ export const fetchUser = () => {
       .catch((error) => {
         throw error;
       });
+      return response;
     console.log(response);
   };
 };
@@ -46,6 +51,7 @@ export const fetchProfiles = () => {
       .catch((error) => {
         throw error;
       });
+      return response
     console.log(response);
   };
 };
@@ -90,6 +96,27 @@ export const fetchStates = (id) => {
     return response
   };
 };
+
+// fetch json todos
+export const fetchTodos = (start,limit) => {
+  return (dispatch) => {
+   
+    dispatch(fetchTodosRequest());
+
+    const response = getData(`${todo_url}?_start=${start}&_limit=${limit}`)
+      .then((res) =>{
+        dispatch(fetchTodosSuccess(res)) 
+        return res
+      }) 
+      
+      .catch((error) => {
+        throw error;
+      });
+    console.log(response);
+    return response
+  };
+};
+
 
 export const addUser = (data) => {
   return (dispatch) => {
@@ -154,6 +181,34 @@ export const editUser = (id, data) => {
       .catch((error) => {
         throw error;
       });
+      return response
+    console.log(response);
+  };
+};
+//
+export const Deleteprofile = (data) => {
+  return (dispatch) => {
+    const response = deleteData(deleteprofile_url + data)
+      .then((res) => {
+        dispatch(fetchProfiles());
+      })
+      .catch((error) => {
+        throw error;
+      });
+      return response
+    console.log(response);
+  };
+};
+export const editProfile = (id, data) => {
+  return (dispatch) => {
+    const response = patchData(profileview_url + id, data)
+      .then((res) => {
+        dispatch(fetchProfiles());
+      })
+      .catch((error) => {
+        throw error;
+      });
+      return response
     console.log(response);
   };
 };

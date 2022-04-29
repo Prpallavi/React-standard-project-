@@ -1,0 +1,8 @@
+{
+    "header": [
+        {"field":"name","sortable": true,"filter": true,"editable":true},
+        {"field": "password" ,"sortable": true,"filter": true}
+       
+       
+    ]
+  }

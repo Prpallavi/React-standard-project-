@@ -1,10 +1,10 @@
 import React from 'react'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form } from "react-bootstrap";
 function Textbox(props) {
   return (  
-  <Form.Control
- 
+  <Form.Control 
+    
     type={props.type}
     id={props.id}
     name={props.name}

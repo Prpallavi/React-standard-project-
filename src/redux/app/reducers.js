@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   users: [],
   dcountries: [],
   dstates: [],
+  todoslist: [],
   error: "",
 };
 
@@ -19,7 +20,7 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         loading: false,
         users: action.payload,
-  
+
         error: "",
       };
     case ActionTypes.FETCH_USERDATA_FAILURE:
@@ -29,8 +30,8 @@ const reducer = (state = INITIAL_STATE, action) => {
         error: action.payload,
       };
 
-//COUNTRIES
-      case ActionTypes.FETCH_COUNTRIES_LOADING:
+    //COUNTRIES
+    case ActionTypes.FETCH_COUNTRIES_LOADING:
       return {
         ...state,
         loading: true,
@@ -39,7 +40,7 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         loading: false,
         dcountries: action.payload,
-  
+
         error: "",
       };
     case ActionTypes.FETCH_COUNTRIES_FAILURE:
@@ -49,28 +50,47 @@ const reducer = (state = INITIAL_STATE, action) => {
         error: action.payload,
       };
 
-//STATES
+    //STATES
 
+    case ActionTypes.FETCH_STATES_LOADING:
+      return {
+        ...state,
+        loading: true,
+      };
+    case ActionTypes.FETCH_STATES_SUCCESS:
+      return {
+        loading: false,
+        dstates: action.payload,
 
-case ActionTypes.FETCH_STATES_LOADING:
-  return {
-    ...state,
-    loading: true,
-  };
-case ActionTypes.FETCH_STATES_SUCCESS:
-  return {
-    loading: false,
-    dstates: action.payload,
+        error: "",
+      };
+    case ActionTypes.FETCH_STATES_FAILURE:
+      return {
+        loading: false,
+        dstates: [],
+        error: action.payload,
+      };
 
-    error: "",
-  };
-case ActionTypes.FETCH_STATES_FAILURE:
-  return {
-    loading: false,
-    dstates: [],
-    error: action.payload,
-  };
+    //TODOS
 
+    case ActionTypes.FETCH_TODOS_LOADING:
+      return {
+        ...state,
+        loading: true,
+      };
+    case ActionTypes.FETCH_TODOS_SUCCESS:
+      return {
+        loading: false,
+        todoslist: action.payload,
+
+        error: "",
+      };
+    case ActionTypes.FETCH_TODOS_FAILURE:
+      return {
+        loading: false,
+        todoslist: [],
+        error: action.payload,
+      };
 
     case ActionTypes.ADD_USERDATA_SUCCESS:
       return {
@@ -82,4 +102,5 @@ case ActionTypes.FETCH_STATES_FAILURE:
       return state;
   }
 };
+
 export default reducer;
