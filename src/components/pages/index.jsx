@@ -1,5 +1,5 @@
-import {Home,Updatepost,Profile,Login,Viewprofile,Countrydropdown,Cards,Scroll,NewsPage,Agcrud}  from "./Registration";
+import {Home,Updatepost,Profile,Login,Viewprofile,Countrydropdown,Cards,NewsPage,Agcrud}  from "./Registration";
 
 export{
-    Home,Updatepost,Profile,Login,Viewprofile,Countrydropdown,Cards,Scroll,NewsPage,Agcrud
+    Home,Updatepost,Profile,Login,Viewprofile,Countrydropdown,Cards,NewsPage,Agcrud
 }
